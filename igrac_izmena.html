@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container col-lg-2 col-lg-12">
+    <div class="my-5">
+        <h3>Izmena igraca</h3>
+    </div>
+"
+    <form action={{ url_for('igrac_izmena', id=igrac.id) }} method="POST">
+        <div class="form-group">
+            <label for="ime">Ime</label>
+            <input type="text" class="form-control" name="ime" value={{ igrac.ime }} required>
+            </div>
+            <div class="form-group">
+                <label for="prezime">Prezime</label>
+                <input type="text" class="form-control" name="prezime" value={{ igrac.prezime }} required>
+                </div>
+                <div class="form-group">
+                    <label for="poeni">Poeni</label>
+                    <input type="text" class="form-control" name="poeni" value={{ igrac.poeni }} required>
+                    </div>
+                    <div class="form-group">
+                        <select name="rola" class="form-control">
+                            <option {% if igrac.rola == "" %} selected {% endif %} disabled>Izaberite rolu</option>
+                            <option {% if igrac.rola == "administrator" %} selected {% endif %} value="administrator">Administrator</option>
+                            <option {% if igrac.rola == "igrac" %} selected {% endif %} value="igrac">Igrac</option>
+                        </select>
+                        <input type="submit" value="Sacuvaj" class="btn btn-orange">
+                    
+    </form>
+</div>
+
+{% endblock %} 

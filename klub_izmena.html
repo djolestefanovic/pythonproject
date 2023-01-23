@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container col-lg-2 col-lg-12">
+    <div class="my-5">
+        <h3>Izmena kluba</h3>
+    </div>
+"
+    <form action={{ url_for('klub_izmena', id=klubovi.id) }} method="POST">
+        <div class="form-group">
+            <label for="sifra">Sifra</label>
+            <input type="text" class="form-control" name="sifra" value={{ klubovi.sifra }} required>
+            </div>
+            <div class="form-group">
+                <label for="naziv">Naziv</label>
+                <input type="text" class="form-control" name="naziv" value={{ klubovi.naziv }} required>
+                </div>
+                <div class="form-group">
+                    <label for="pozicija">Pozicija</label>
+                    <input type="text" class="form-control" name="pozicija" value={{ klubovi.pozicija }} required>
+                    </div>
+                    <div class="form-group">
+                        <select name="grad" class="form-control">
+                            <option {% if klubovi.rola == "" %} selected {% endif %} disabled>Izaberite rolu</option>
+                            <option {% if klubovi.rola == "administrator" %} selected {% endif %} value="administrator">Administrator</option>
+                            <option {% if klubovi.rola == "klub" %} selected {% endif %} value="klub">klub</option>
+                        </select>
+                        <input type="submit" value="Sacuvaj" class="btn btn-orange">
+                    
+    </form>
+</div>
+
+{% endblock %} 
