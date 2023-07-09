@@ -1,1 +1,1 @@
-# webprogramiranje
+# python project
